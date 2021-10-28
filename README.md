@@ -15,3 +15,11 @@ python3 manage.py runserver
 ```sh
 python3 manage.py startapp <app_name>
 ```
+- To generate the SQL code (after editing the models)
+```sh
+python3 manage.py makemigrations
+```
+- To create all the fields on the admin (after executing 'makemigrations')
+```sh
+python3 manage.py migrate
+```
