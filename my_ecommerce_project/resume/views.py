@@ -3,10 +3,7 @@ from django.http import HttpResponse, Http404
 
 # Create your views here.
 def home(request):
-    return HttpResponse('<h1>HOME PAGE</h1>')
-
-def index(request):
-    return render(request, 'resume/index.html')
+    return render(request, 'resume/home.html')
 
 def about(request):
     return render(request, 'resume/about.html')
