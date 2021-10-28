@@ -7,3 +7,6 @@ def home(request):
 
 def index(request):
     return render(request, 'resume/index.html')
+
+def about(request):
+    return render(request, 'resume/about.html')
