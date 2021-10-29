@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Resume
+from .models import Resume, Post
 
 # Create your views here.
 def home(request):
@@ -10,4 +10,7 @@ def about(request):
     return render(request, 'resume/about.html', {'resume': resume})
 
 def blog(request):
-    return render(request, 'resume/blog.html')
+    context = {
+        'posts': Post.objects.all()
+    }
+    return render(request, 'resume/blog.html', context)
