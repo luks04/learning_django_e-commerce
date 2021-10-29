@@ -11,7 +11,7 @@ def about(request):
     return render(request, 'resume/about.html', {'resume': resume})
 
 def blog(request):
-    posts_objects = Post.objects.all()
+    posts_objects = Post.objects.all().order_by('-date')
     item_name = request.GET.get('item_name') # <input name="item_name" />
 
     if item_name != "" and item_name is not None:
