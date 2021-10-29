@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -13,3 +14,9 @@ class Resume(models.Model):
     email = models.CharField(max_length = 30)
     skype = models.CharField(max_length = 30)
     languages = models.CharField(max_length = 30)
+
+class Post(models.Model):
+    image = models.ImageField(upload_to = 'images/')
+    title = models.CharField(max_length = 20)
+    content = models.TextField()
+    author = models.ForeignKey(User, on_delete = models.CASCADE) # CASCADE to delete Post en User Delete
