@@ -11,13 +11,17 @@ def about(request):
     return render(request, 'resume/about.html', {'resume': resume})
 
 def blog(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'resume/blog.html', context)
+    posts_objects = Post.objects.all()
+    item_name = request.GET.get('item_name') # <input name="item_name" />
 
+    if item_name != "" and item_name is not None:
+        posts_objects = posts_objects.filter(title__icontains = item_name)
+    return render(request, 'resume/blog.html', {'posts_objects': posts_objects})
+
+'''
 class PostListView(ListView):
     model = Post
     template_name = 'resume/blog.html' # 'template_name' -> kew word
-    context_object_name = 'posts' # 'context_object_name' -> kew word
+    context_object_name = 'posts_objects' # 'context_object_name' -> kew word
     ordering = ['-date']
+'''
