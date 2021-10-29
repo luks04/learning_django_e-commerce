@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
+from .models import Resume
 
 # Create your views here.
 def home(request):
     return render(request, 'resume/home.html')
 
 def about(request):
-    return render(request, 'resume/about.html')
+    resume = Resume.objects.get(pk = 1)
+    return render(request, 'resume/about.html', {'resume': resume})
