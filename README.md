@@ -23,3 +23,7 @@ python3 manage.py makemigrations
 ```sh
 python3 manage.py migrate
 ```
+- To create the super user to be able to access to the admin
+```sh
+python3 manage.py createsuperuser
+```
