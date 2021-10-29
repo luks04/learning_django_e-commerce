@@ -20,3 +20,4 @@ class PostListView(ListView):
     model = Post
     template_name = 'resume/blog.html' # 'template_name' -> kew word
     context_object_name = 'posts' # 'context_object_name' -> kew word
+    ordering = ['-date']
