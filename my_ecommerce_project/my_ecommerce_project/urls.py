@@ -17,8 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from rest_framework import routers
+from rest_api.views import MovieViewSet
+
+router = routers.DefaultRouter() # Imported from rest_framework
+router.register('movie', MovieViewSet) # To include the viewset on the routesr.urls
+'''
+router.register('<ClassName with lower_case>', <ClassName>ViewSet)
+'''
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("resume.urls")),
+    path('api/', include(router.urls)), # api/<registered_app_name>
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
