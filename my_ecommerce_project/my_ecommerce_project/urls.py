@@ -21,8 +21,8 @@ from rest_framework import routers
 from rest_api.views import MovieViewSet, ActionMoviewViewSet
 
 router = routers.DefaultRouter() # Imported from rest_framework
-router.register('movie', MovieViewSet) # To include the viewset on the routesr.urls
-router.register('action_movies', ActionMoviewViewSet) # To include the viewset on the routesr.urls
+router.register('movie', MovieViewSet, basename = 'movie') # To include the viewset on the routesr.urls
+router.register('action_movies', ActionMoviewViewSet, basename = 'action_movies') # To include the viewset on the routesr.urls
 '''
 router.register('<ClassName with lower_case>', <ClassName>ViewSet)
 '''
