@@ -29,6 +29,6 @@ router.register('<ClassName with lower_case>', <ClassName>ViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("resume.urls")),
-    path('api/', include(router.urls)), # api/<registered_app_name>
+    path('resume/', include("resume.urls")),
+    path('rest_api/api/', include(router.urls)), # rest_api/api/<registered_app_name>
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
